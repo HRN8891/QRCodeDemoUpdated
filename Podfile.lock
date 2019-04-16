@@ -1,0 +1,32 @@
+PODS:
+  - EFQRCode (5.0.0):
+    - swift_qrcodejs (~> 1.1.1)
+  - LZViewPager (1.1.0):
+    - SnapKit (~> 4.2.0)
+  - QRCodeReader.swift (10.0.0)
+  - SnapKit (4.2.0)
+  - swift_qrcodejs (1.1.1)
+
+DEPENDENCIES:
+  - EFQRCode (~> 5.0.0)
+  - LZViewPager (~> 1.1.0)
+  - QRCodeReader.swift (~> 10.0.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - EFQRCode
+    - LZViewPager
+    - QRCodeReader.swift
+    - SnapKit
+    - swift_qrcodejs
+
+SPEC CHECKSUMS:
+  EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
+  LZViewPager: 7f02c7f135004aaf8aca51637719fec744b5f6cc
+  QRCodeReader.swift: 74d0378eb0c7807828552b49626bbc8307495aee
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
+
+PODFILE CHECKSUM: b2fad620ea5030fbbc74e42ddfb1c9e11e9e0546
+
+COCOAPODS: 1.5.0

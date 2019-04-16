@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Data Source-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QRCodeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0sy-zD-D2L" customClass="LZViewPager" customModule="LZViewPager">
+                                <rect key="frame" x="0.0" y="25" width="375" height="642"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="hdl-Re-chQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZrB-Ar-CNK"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0sy-zD-D2L" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="25" id="46I-6w-4IM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0sy-zD-D2L" secondAttribute="bottom" id="H9k-bJ-fiv"/>
+                            <constraint firstItem="0sy-zD-D2L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fX6-7t-7kY"/>
+                            <constraint firstAttribute="trailing" secondItem="0sy-zD-D2L" secondAttribute="trailing" id="g22-xa-D16"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewPager" destination="0sy-zD-D2L" id="50p-Oa-iRO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="556" y="-43"/>
+        </scene>
+        <!--Code ReaderVC-->
+        <scene sceneID="DTo-05-OHN">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeReaderVC" id="3DR-Od-xLl" customClass="QRCodeReaderVC" customModule="QRCodeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0ud-Zd-6BG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbe-1a-1hZ">
+                                <rect key="frame" x="80" y="307" width="215" height="48"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.1137254902" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="2Cd-1i-mAn"/>
+                                    <constraint firstAttribute="height" constant="48" id="xrZ-vk-Yhs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Tap here to scan QR Code">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanInModalAction:" destination="3DR-Od-xLl" eventType="touchUpInside" id="ITM-48-FV6"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mc8-cM-CQ6">
+                                <rect key="frame" x="58.5" y="95" width="258" height="182"/>
+                                <color key="backgroundColor" red="1" green="0.8576714802892762" blue="0.34714485638329573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="8BD-id-FbC"/>
+                                    <constraint firstAttribute="height" constant="182" id="pDY-2I-MlI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3DR-Od-xLl" id="cMs-04-jsN"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QRCode Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7Z-cj-l4y">
+                                <rect key="frame" x="16" y="64" width="116" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="aW3-ht-PB1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="97f-F8-4er">
+                                <rect key="frame" x="80" y="377" width="215" height="48"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.1137254902" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="C8x-Mw-8mg"/>
+                                    <constraint firstAttribute="width" constant="215" id="Ooz-Do-PIC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Tap here to select QR Code from Gallery">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnClicked" destination="3DR-Od-xLl" eventType="touchUpInside" id="vdt-kO-Ccw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="n7Z-cj-l4y" firstAttribute="leading" secondItem="a3r-eY-sMo" secondAttribute="leading" constant="16" id="17j-lB-uBg"/>
+                            <constraint firstItem="mc8-cM-CQ6" firstAttribute="top" secondItem="n7Z-cj-l4y" secondAttribute="bottom" constant="10" id="5SE-Bv-eUI"/>
+                            <constraint firstItem="97f-F8-4er" firstAttribute="centerX" secondItem="0ud-Zd-6BG" secondAttribute="centerX" id="91m-Qo-T8X"/>
+                            <constraint firstItem="mc8-cM-CQ6" firstAttribute="centerX" secondItem="0ud-Zd-6BG" secondAttribute="centerX" id="HtA-sx-4SN"/>
+                            <constraint firstItem="Wbe-1a-1hZ" firstAttribute="centerX" secondItem="0ud-Zd-6BG" secondAttribute="centerX" id="e42-ug-7pp"/>
+                            <constraint firstItem="n7Z-cj-l4y" firstAttribute="top" secondItem="a3r-eY-sMo" secondAttribute="top" constant="44" id="eG0-GR-vbf"/>
+                            <constraint firstItem="97f-F8-4er" firstAttribute="top" secondItem="Wbe-1a-1hZ" secondAttribute="bottom" constant="22" id="gZ6-83-BCi"/>
+                            <constraint firstItem="Wbe-1a-1hZ" firstAttribute="top" secondItem="mc8-cM-CQ6" secondAttribute="bottom" constant="30" id="sqX-6d-t1h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a3r-eY-sMo"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrCodeGeneratorTextView" destination="mc8-cM-CQ6" id="Prn-gk-gqE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7I-q0-D5e" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322.39999999999998" y="-37.331334332833585"/>
+        </scene>
+        <!--Code GeneratorVC-->
+        <scene sceneID="PNP-7R-bzR">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeGeneratorVC" id="xtK-a8-OEY" customClass="QRCodeGeneratorVC" customModule="QRCodeDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ks5-ZG-7u7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Please enter your text here for qr code" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-6d-Iwk">
+                                <rect key="frame" x="16" y="78" width="338" height="245"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.39563476460000002" blue="0.25027065590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xtK-a8-OEY" id="fj2-9E-PwX"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dco-6G-gYh">
+                                <rect key="frame" x="111" y="393" width="153" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93333333330000001" green="0.1137254902" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Generate QRCode">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="generateQRCode:" destination="xtK-a8-OEY" eventType="touchUpInside" id="Z6L-tg-hZr"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J5X-vJ-HX5">
+                                <rect key="frame" x="71" y="480" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="bUh-Gb-ARr"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrCodeGeneratorTextView" destination="Wgz-6d-Iwk" id="oPE-Ah-0GF"/>
+                        <outlet property="qrCodeImageView" destination="J5X-vJ-HX5" id="5ib-U3-0yV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GK7-nw-CdH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="-1262.5187406296852"/>
+        </scene>
+    </scenes>
+</document>
